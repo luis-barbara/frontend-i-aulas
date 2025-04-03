@@ -1,0 +1,28 @@
+{
+    "cards": [
+        {
+            "id": 1,
+            "title": "Arte Surrealista",
+            "description": "Obra inspirada em Dalí",
+            "imageUrl": "images/dali_img1(25).png"
+        },
+        {
+            "id": 2,
+            "title": "Paisagem Onírica",
+            "description": "Estilo de sonho líquido",
+            "imageUrl": "images/dali_img2(10).png"
+        },
+        {
+            "id": 3,
+            "title": "Studio Ghibli",
+            "description": "Influência de Miyazaki",
+            "imageUrl": "images/dali_img6(studio ghibli).png"
+        },
+        {
+            "id": 4,
+            "title": "Studio Ghibli",
+            "description": "Influência de Miyazaki",
+            "imageUrl": "images/dali_img7.png"
+        }
+    ]
+}

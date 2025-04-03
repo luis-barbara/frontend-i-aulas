@@ -1,32 +1,19 @@
-// Seleciona todos os botões de hambúrguer
-var toggles = document.querySelectorAll(".c-hamburger");
+const hamburgerMenu = document.querySelector(".hamburger-menu");
+const sidebar = document.querySelector(".sidebar");
 
-// Para cada botão, define um "click handler"
-for (var i = toggles.length - 1; i >= 0; i--) {
-  var toggle = toggles[i];
-  toggleHandler(toggle);
-};
-
-// Função que trata a lógica do clique
-function toggleHandler(toggle) {
-  toggle.addEventListener("click", function(e) {
-    e.preventDefault();
-    if (this.classList.contains("is-active") === true) {
-      // Quando o menu é fechado
-      this.classList.remove("is-active");
-      document.querySelector(".sub-menu").classList.remove("oppenned");
-    } else {
-      // Quando o menu é aberto
-      this.classList.add("is-active");
-      document.querySelector(".sub-menu").classList.add("oppenned");
-    }
-  });
+// Function to toggle the sidebar and hamburger menu
+function toggleMenu() {
+    hamburgerMenu.classList.toggle("change");
+    sidebar.classList.toggle("open");
 }
 
-// Fechar o menu quando um link for clicado
-document.querySelectorAll(".sub-menu li a").forEach(function(item) {
-  item.addEventListener("click", function() {
-    document.querySelector(".sub-menu").classList.remove("oppenned");
-    document.querySelector(".c-hamburger").classList.remove("is-active");
-  });
+hamburgerMenu.addEventListener("click", toggleMenu);
+
+// Close menu when clicking outside
+document.querySelectorAll(".sidebar a").forEach(link => {
+    link.addEventListener("click", () => {
+        sidebar.classList.remove("open");
+        hamburgerMenu.classList.remove("change");
+    });
 });
+
