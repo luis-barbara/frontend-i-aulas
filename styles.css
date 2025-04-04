@@ -22,7 +22,6 @@ main {
     display: flex;
     align-items: center;
     gap: 20px;
-    font-size: 16px;
 }
 
 
@@ -45,7 +44,7 @@ main {
 
 .navbar nav a {
     padding: 10px 15px;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .signin-button {

@@ -5,43 +5,39 @@
 
 .row {
     display: flex;
-    flex-wrap: wrap;  
-    gap: 16px;        
-    justify-content: flex-start;  /
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center; 
+    max-width: 1280px; 
+    margin: 0 auto; 
 }
 
+
 .column {
-    flex: 1 1 23%;   
-    max-width: 23%;  
+    flex: 1 1 calc(25% - 16px);  
+    max-width: calc(25% - 16px);
     padding: 8px;
-    box-sizing: border-box;
-    position: relative;
-    background-color: #fff; 
-    border-radius: 8px;      
-    overflow: hidden;        
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
 }
 
 .column img {
     width: 100%;
     height: auto;
-    display: block;  
-    border-radius: 8px;
+    display: block;
 }
 
 
 @media screen and (max-width: 1024px) {
     .column {
-        flex: 1 1 48%;  
-        max-width: 48%;
+        flex: 1 1 calc(50% - 16px);  
+        max-width: calc(50% - 16px);
     }
 }
 
 
 @media screen and (max-width: 768px) {
     .column {
-        flex: 1 1 48%;  
-        max-width: 48%;
+        flex: 1 1 calc(50% - 16px);  
+        max-width: calc(50% - 16px);
     }
 }
 

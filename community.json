@@ -4,25 +4,31 @@
             "id": 1,
             "title": "Arte Surrealista",
             "description": "Obra inspirada em Dalí",
-            "imageUrl": "images/dali_img1(25).png"
+            "imageUrl": "images/dali_img1(25).png",
+            "tag": "character"
         },
+
         {
             "id": 2,
             "title": "Paisagem Onírica",
             "description": "Estilo de sonho líquido",
-            "imageUrl": "images/dali_img2(10).png"
+            "imageUrl": "images/dali_img2(10).png",
+            "tag": "character"
         },
         {
             "id": 3,
             "title": "Studio Ghibli",
             "description": "Influência de Miyazaki",
-            "imageUrl": "images/dali_img6(studio ghibli).png"
+            "imageUrl": "images/dali_img6(studio ghibli).png",
+            "tag": "character"
         },
         {
             "id": 4,
             "title": "Studio Ghibli",
             "description": "Influência de Miyazaki",
-            "imageUrl": "images/dali_img7.png"
+            "imageUrl": "images/dali_img7.png",
+            "tag": "character"
+
         }
     ]
 }
