@@ -48,6 +48,16 @@
             <div class="upper-text">
                 <h1>Community<span></span></h1>
             </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search..." onkeyup="filterCards()">
+                <select id="filterSelect" onchange="filterCards()">
+                    <option value="all">All</option>
+                    <option value="character">Character</option>
+                    <option value="scenario">Scenario</option>
+                    <option value="video">Video</option>
+                </select>
+            </div>
+            
             <div class="row"> 
                 
             </div>

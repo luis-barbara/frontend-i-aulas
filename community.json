@@ -2,108 +2,146 @@
     "cards": [
         {
             "id": 1,
-            "title": "Arte Surrealista",
-            "description": "Obra inspirada em Dalí",
-            "imageUrl": "images/dali_img1(25).png",
-            "tag": "character"
+            "title": "Surrealist Art",
+            "description": "Artwork inspired by Dalí",
+            "imageUrl": "images/img1.png",
+            "tag": "character",
+            "user": "John Pereira"
         },
 
         {
             "id": 2,
-            "title": "Paisagem Onírica",
-            "description": "Estilo de sonho líquido",
-            "imageUrl": "/images/abstract-3d-painting-coming-life-with-bird_img17.jpg",
-            "tag": "character"
+            "title": "Dreamy Landscape",
+            "description": "Liquid dream style",
+            "imageUrl": "/images/img2.png",
+            "tag": "character",
+            "user": "Anna Costa"
         },
 
         {
             "id": 3,
             "title": "Studio Ghibli",
-            "description": "Influência de Miyazaki",
-            "imageUrl": "images/dali_img6(studio ghibli).png",
-            "tag": "character"
+            "description": "Influence of Miyazaki",
+            "imageUrl": "images/img3.png",
+            "tag": "character",
+            "user": "Carlos Mendes"
         },
 
         {
             "id": 4,
             "title": "Studio Ghibli",
-            "description": "Influência de Miyazaki",
-            "imageUrl": "images/beautiful-rainbow-nature_img8.jpg",
-            "tag": "character"
-
+            "description": "Influence of Miyazaki",
+            "imageUrl": "images/img4.png",
+            "tag": "character",
+            "user": "Fernanda Lima"
         },
 
         {
             "id": 5,
             "title": "Studio Ghibli",
-            "description": "Influência de Miyazaki",
-            "imageUrl": "images/cartoon-like-possum-illustration_img18.jpg",
-            "tag": "character"
-
+            "description": "Influence of Miyazaki",
+            "imageUrl": "images/img5.png",
+            "tag": "character",
+            "user": "Richard Souza"
         },
 
         {
             "id": 6,
             "title": "Studio Ghibli",
-            "description": "Influência de Miyazaki",
-            "imageUrl": "images/close-up-new-york-fashionable-man_img14.jpg",
-            "tag": "character"
-
+            "description": "Influence of Miyazaki",
+            "imageUrl": "images/img6.png",
+            "tag": "character",
+            "user": "Claudia Silva"
         },
 
         {
             "id": 7,
             "title": "Studio Ghibli",
-            "description": "Influência de Miyazaki",
-            "imageUrl": "images/dali_img7.png",
-            "tag": "character"
-
+            "description": "Influence of Miyazaki",
+            "imageUrl": "images/img7.png",
+            "tag": "character",
+            "user": "Peter Almeida"
         },
 
         {
             "id": 8,
             "title": "Studio Ghibli",
-            "description": "Influência de Miyazaki",
-            "imageUrl": "images/cyberpunk-boy-illustration_img13.jpg",
-            "tag": "character"
-
+            "description": "Influence of Miyazaki",
+            "imageUrl": "images/img8.png",
+            "tag": "character",
+            "user": "Alice Oliveira"
         },
 
         {
             "id": 9,
             "title": "Studio Ghibli",
-            "description": "Influência de Miyazaki",
-            "imageUrl": "/images/abstract-3d-painting-coming-life-with-bird_img17.jpg",
-            "tag": "character"
-
+            "description": "Influence of Miyazaki",
+            "imageUrl": "/images/img9.png",
+            "tag": "character",
+            "user": "David Martins"
         },
 
         {
             "id": 10,
             "title": "Studio Ghibli",
-            "description": "Influência de Miyazaki",
-            "imageUrl": "images/dali_img7.png.jpg",
-            "tag": "character"
-
+            "description": "Influence of Miyazaki",
+            "imageUrl": "images/img10.png",
+            "tag": "character",
+            "user": "Lucas Pereira"
         },
 
         {
             "id": 11,
             "title": "Studio Ghibli",
-            "description": "Influência de Miyazaki",
-            "imageUrl": "images/digital-art-galaxy_img10.jpg",
-            "tag": "character"
-
+            "description": "Influence of Miyazaki",
+            "imageUrl": "images/img11.png",
+            "tag": "character",
+            "user": "Maria Silva"
         },
 
         {
             "id": 12,
             "title": "Studio Ghibli",
-            "description": "Influência de Miyazaki",
-            "imageUrl": "images/digital-art-southwest-landscape_img9.jpg",
-            "tag": "character"
+            "description": "Influence of Miyazaki",
+            "imageUrl": "images/img12.png",
+            "tag": "character",
+            "user": "Sofia Santos"
+        },
 
+        {
+            "id": 13,
+            "title": "Studio Ghibli",
+            "description": "Influence of Miyazaki",
+            "imageUrl": "images/img13.png",
+            "tag": "character",
+            "user": "Bruno Rocha"
+        },
+
+        {
+            "id": 14,
+            "title": "Studio Ghibli",
+            "description": "Influence of Miyazaki",
+            "imageUrl": "images/img14.png",
+            "tag": "character",
+            "user": "Júlia Costa"
+        },
+
+        {
+            "id": 15,
+            "title": "Studio Ghibli",
+            "description": "Influence of Miyazaki",
+            "imageUrl": "/images/img15.png",
+            "tag": "character",
+            "user": "Maria Silva"
+        },
+
+        {
+            "id": 16,
+            "title": "Studio Ghibli",
+            "description": "Influence of Miyazaki",
+            "imageUrl": "/images/img16.png",
+            "tag": "character",
+            "user": "Miguel Oliveira"
         }
-
     ]
 }
