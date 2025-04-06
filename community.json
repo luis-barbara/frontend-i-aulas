@@ -12,9 +12,10 @@
             "id": 2,
             "title": "Paisagem Onírica",
             "description": "Estilo de sonho líquido",
-            "imageUrl": "images/dali_img2(10).png",
+            "imageUrl": "/images/abstract-3d-painting-coming-life-with-bird_img17.jpg",
             "tag": "character"
         },
+
         {
             "id": 3,
             "title": "Studio Ghibli",
@@ -22,13 +23,87 @@
             "imageUrl": "images/dali_img6(studio ghibli).png",
             "tag": "character"
         },
+
         {
             "id": 4,
+            "title": "Studio Ghibli",
+            "description": "Influência de Miyazaki",
+            "imageUrl": "images/beautiful-rainbow-nature_img8.jpg",
+            "tag": "character"
+
+        },
+
+        {
+            "id": 5,
+            "title": "Studio Ghibli",
+            "description": "Influência de Miyazaki",
+            "imageUrl": "images/cartoon-like-possum-illustration_img18.jpg",
+            "tag": "character"
+
+        },
+
+        {
+            "id": 6,
+            "title": "Studio Ghibli",
+            "description": "Influência de Miyazaki",
+            "imageUrl": "images/close-up-new-york-fashionable-man_img14.jpg",
+            "tag": "character"
+
+        },
+
+        {
+            "id": 7,
             "title": "Studio Ghibli",
             "description": "Influência de Miyazaki",
             "imageUrl": "images/dali_img7.png",
             "tag": "character"
 
+        },
+
+        {
+            "id": 8,
+            "title": "Studio Ghibli",
+            "description": "Influência de Miyazaki",
+            "imageUrl": "images/cyberpunk-boy-illustration_img13.jpg",
+            "tag": "character"
+
+        },
+
+        {
+            "id": 9,
+            "title": "Studio Ghibli",
+            "description": "Influência de Miyazaki",
+            "imageUrl": "/images/abstract-3d-painting-coming-life-with-bird_img17.jpg",
+            "tag": "character"
+
+        },
+
+        {
+            "id": 10,
+            "title": "Studio Ghibli",
+            "description": "Influência de Miyazaki",
+            "imageUrl": "images/dali_img7.png.jpg",
+            "tag": "character"
+
+        },
+
+        {
+            "id": 11,
+            "title": "Studio Ghibli",
+            "description": "Influência de Miyazaki",
+            "imageUrl": "images/digital-art-galaxy_img10.jpg",
+            "tag": "character"
+
+        },
+
+        {
+            "id": 12,
+            "title": "Studio Ghibli",
+            "description": "Influência de Miyazaki",
+            "imageUrl": "images/digital-art-southwest-landscape_img9.jpg",
+            "tag": "character"
+
         }
+
     ]
 }
