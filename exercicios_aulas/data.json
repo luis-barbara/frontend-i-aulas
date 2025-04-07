@@ -1,0 +1,26 @@
+{
+    "posts": 
+        {
+            "id": 1,
+            "userId": 1,
+            "title": "Post 1",
+            "body": "Descrição do post",
+            "imageUrl": "https://via.placeholder.com/600",
+            "tags": ["arte", "IA"],
+            "likes": [],
+            "comments": [],
+            "createdAt": 1,
+            "updatedAt": 1
+        },
+    
+    
+
+    "cards": 
+        {
+            "id": 1,
+            "userId": 1,
+            "title": "Card 1",
+            "body": "Descrição do card"
+        }
+    
+  }
