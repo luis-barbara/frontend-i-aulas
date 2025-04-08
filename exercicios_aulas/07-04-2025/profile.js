@@ -21,18 +21,18 @@ document.getElementById("userForm").addEventListener("submit", function (event) 
         note: note
     };
 
-    const userPostList = JSON.parse(localStorage.getItem("userPostList"));
+    let userPostList = JSON.parse(localStorage.getItem("userPostList")) || { posts: [] };
     console.log(userPostList);
 
-    if (userPostList) {
-        userPostList.posts.push(userPost);
-    } else {
-        userPostList = { posts: [userPost] };
-    }
+    userPostList.posts.push(userPost);
 
-        localStorage.setItem("userPostList", JSON.stringify(userPostList));
+    localStorage.setItem("userPostList", JSON.stringify(userPostList));
     
     alert("Information saved!");
-});
 
-getUserPost();
+    document.getElementById("fname").value = "";
+    document.getElementById("note").value = "";
+
+    getUserPost();
+
+});

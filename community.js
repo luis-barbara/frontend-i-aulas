@@ -46,7 +46,7 @@ function updateCardsContent(cards) {
         likeButton.addEventListener('click', () => { alert('Liked!'); });
 
         const saveButton = document.createElement('button');
-        saveButton.innerHTML = '<i class="fas fa-save"></i>';
+        saveButton.innerHTML = '<i class="fa-regular fa-bookmark"></i>';
         saveButton.addEventListener('click', () => { alert('Saved!'); });
 
         const shareButton = document.createElement('button');
