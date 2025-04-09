@@ -17,7 +17,7 @@ main {
     padding: 30px 0;
     width: 100%;
     position: relative;
-    z-index: 100; 
+    z-index: 10; 
 }
 
 .navbar nav {
@@ -85,6 +85,7 @@ main {
     background: rgba(0, 0, 0, 0.9);
     transition: left 0.3s;
     padding-top: 60px;
+    z-index: 100;
 }
 
 .sidebar ul {
@@ -115,6 +116,18 @@ main {
     left: 0;
 }
 
+.sidebar .close-btn {
+    color: white;
+    font-size: 36px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+
 /* Botão de hambúrguer */
 .hamburger-menu {
     display: flex;
@@ -122,8 +135,8 @@ main {
     cursor: pointer;
     gap: 6px;
     order: 1; 
-    z-index: 1000;
     margin-right: auto;
+
 }
 
 .bar1, .bar2, .bar3 {

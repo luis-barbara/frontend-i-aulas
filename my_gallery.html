@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <title>Dali</title>
+    <link rel="icon" type="favicon/x-icon" href="/imagens/favicon2.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="community.css">
+    <link rel="stylesheet" href="my_gallery.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <a class=dali-button href="index.html">DALI.ai</a>
+                <div class="hamburger-menu">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+                <nav>
+                    <a class=signin-button href="signin.html">Signin</a>
+                    <a class=signup-button href="signup.html">Signup</a>
+                </nav>
+            </div>
+        </div>
+        <aside id="sidebar" class="sidebar">
+            <button class="close-btn">&times;</button> <!-- Close button inside the sidebar -->
+            <ul class="menu">
+                <li><a href="/index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/my_gallery.html"><i class="fas fa-image"></i> My Gallery</a></li>
+                <li><a href="#"><i class="fas fa-user"></i> Character</a></li>
+                <li><a href="#"><i class="fa-solid fa-mountain-sun"></i> Scenario</a></li>
+                <li><a href="#"><i class="fas fa-video"></i> Video</a></li>
+                <li><a href="/community.html"><i class="fas fa-users"></i> Community</a></li>
+                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Sign Out</a></li>
+            </ul>
+        </aside>
+    </header>
+    <main>
+        <div class="container">
+            <div class="upper-text">
+                <h1>My Gallery<span></span></h1>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search..." onkeyup="filterCards()">
+                <select id="filterSelect" onchange="filterCards()">
+                    <option value="all">All</option>
+                    <option value="character">Character</option>
+                    <option value="scenario">Scenario</option>
+                    <option value="video">Video</option>
+                </select>
+            </div>
+            
+            <div id="photo-list" class="row">
+                <!-- Photo items -->
+            </div>
+
+            <button id="addPhotoBtn">Add New Post</button>
+
+        </div>
+    </main>
+
+
+    <footer>
+        <div class="container">
+            
+                <p>&copy;2025 DALI.ai - all rights reserved</p>
+            
+        </div>
+    </footer>
+
+    <div id="photoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Add New Photo</h2>
+            <form id="photoForm">
+                <label for="photoTitle">Title:</label>
+                <input type="text" id="photoTitle" name="title" required>
+
+                <label for="photoDescription">Description:</label>
+                <textarea id="photoDescription" name="description" required></textarea>
+
+                <label for="photoImageUrl">Image URL:</label>
+                <input type="url" id="photoImageUrl" name="imageUrl" required>
+
+                <label for="photoCategory">Category:</label>
+                <select id="photoCategory" name="category">
+                    <option value="character">Character</option>
+                    <option value="scenario">Scenario</option>
+                    <option value="video">Video</option>
+                </select>
+
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="my_gallery.js" type="module"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

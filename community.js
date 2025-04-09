@@ -42,7 +42,7 @@ function updateCardsContent(cards) {
         buttonsContainer.className = 'buttons';
         
         const likeButton = document.createElement('button');
-        likeButton.innerHTML = '<i class="fas fa-heart"></i>';
+        likeButton.innerHTML = '<i class="fa-regular fa-heart"></i>';
         likeButton.addEventListener('click', () => { alert('Liked!'); });
 
         const saveButton = document.createElement('button');
@@ -50,7 +50,7 @@ function updateCardsContent(cards) {
         saveButton.addEventListener('click', () => { alert('Saved!'); });
 
         const shareButton = document.createElement('button');
-        shareButton.innerHTML = '<i class="fas fa-share-alt"></i>';
+        shareButton.innerHTML = '<i class="fa-regular fa-share-from-square"></i>';
         shareButton.addEventListener('click', () => { alert('Shared!'); });
 
         buttonsContainer.appendChild(likeButton);

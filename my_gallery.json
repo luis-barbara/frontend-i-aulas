@@ -1,0 +1,18 @@
+[
+{
+    "id": "1",
+    "title": "Post 1",
+    "description": "Description of Post 1",
+    "imageUrl": "images/mg_img1.png",
+    "tag": "character",
+    "user": "User 1"
+  },
+  {
+    "id": "2",
+    "title": "Post 2",
+    "description": "Description of Post 2",
+    "imageUrl": "https://example.com/image2.jpg",
+    "tag": "scenario",
+    "user": "User 2"
+  }
+]
