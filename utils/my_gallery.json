@@ -1,0 +1,34 @@
+[
+{
+    "id": "1",
+    "title": "Post 1",
+    "description": "Description of Post 1",
+    "imageUrl": "images/mg_img1.png",
+    "tag": "character",
+    "user": "Dominick Johns-Altenwerth"
+  },
+  {
+    "id": "2",
+    "title": "Post 2",
+    "description": "Description of Post 2",
+    "imageUrl": "images/mg_img2.png",
+    "tag": "scenario",
+    "user": "Leland Williamson"
+  },
+  {
+    "id": "3",
+    "title": "Post 3",
+    "description": "Description of Post 3",
+    "imageUrl": "images/mg_img3.png",
+    "tag": "scenario",
+    "user": "Viola Kutch"
+  },
+  {
+    "id": "4",
+    "title": "Post 4",
+    "description": "Description of Post 4",
+    "imageUrl": "images/mg_img4.png",
+    "tag": "character",
+    "user": "Garry Prohaska"
+  }
+]

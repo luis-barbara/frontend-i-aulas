@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="community.css">
     <link rel="stylesheet" href="my_gallery.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -49,6 +48,25 @@
             <div class="upper-text">
                 <h1>My Gallery<span></span></h1>
             </div>
+            <div id="editFormContainer" style="display: none;">
+                <h2>Edit Post</h2>
+                <form id="editPostForm">
+                    <label for="editTitle">Title:</label>
+                    <input type="text" id="editTitle" name="title" required>
+    
+                    <label for="editDescription">Description:</label>
+                    <textarea id="editDescription" name="description" required></textarea>
+    
+                    <label for="editImageUrl">Image URL:</label>
+                    <input type="url" id="editImageUrl" name="imageUrl" required>
+    
+                    <label for="editTag">Tag:</label>
+                    <input type="text" id="editTag" name="tag" required>
+    
+                    <button type="submit">Save Changes</button>
+                    <button type="button" id="cancelEdit">Cancel</button>
+                </form>
+            </div>
             <div class="search-container">
                 <input type="text" id="searchInput" placeholder="Search..." onkeyup="filterCards()">
                 <select id="filterSelect" onchange="filterCards()">
@@ -59,16 +77,12 @@
                 </select>
             </div>
             
-            <div id="photo-list" class="row">
-                <!-- Photo items -->
+            <div class="row"> 
+                
             </div>
-
-            <button id="addPhotoBtn">Add New Post</button>
 
         </div>
     </main>
-
-
     <footer>
         <div class="container">
             
@@ -77,35 +91,8 @@
         </div>
     </footer>
 
-    <div id="photoModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 id="modalTitle">Add New Photo</h2>
-            <form id="photoForm">
-                <label for="photoTitle">Title:</label>
-                <input type="text" id="photoTitle" name="title" required>
-
-                <label for="photoDescription">Description:</label>
-                <textarea id="photoDescription" name="description" required></textarea>
-
-                <label for="photoImageUrl">Image URL:</label>
-                <input type="url" id="photoImageUrl" name="imageUrl" required>
-
-                <label for="photoCategory">Category:</label>
-                <select id="photoCategory" name="category">
-                    <option value="character">Character</option>
-                    <option value="scenario">Scenario</option>
-                    <option value="video">Video</option>
-                </select>
-
-                <button type="submit">Save</button>
-            </form>
-        </div>
-    </div>
-
-    <script src="my_gallery.js" type="module"></script>
+    <script src="my_gallery_api.js" type="module"></script>
     <script src="script.js"></script>
-
 </body>
 
 </html>

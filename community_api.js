@@ -1,4 +1,4 @@
-import { getPosts, createPost } from "/mockapi.js"; 
+import { getPosts, createPost, updatePost, deletePost } from "/api.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const posts = await getPosts();
@@ -7,31 +7,54 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 
+function filterCards() {
+  const searchValue = document.getElementById("searchInput").value.toLowerCase();
+  const filterValue = document.getElementById("filterSelect").value;
+  
+  const posts = document.querySelectorAll(".column"); 
+
+  posts.forEach(post => {
+      const title = post.querySelector("h3").textContent.toLowerCase();
+      const category = post.getAttribute("data-category").toLowerCase();
+
+      const matchesSearch = title.includes(searchValue);
+      const matchesFilter = filterValue === "all" || category === filterValue;
+
+      post.style.display = matchesSearch && matchesFilter ? "block" : "none";
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("searchInput").addEventListener("keyup", filterCards);
+  document.getElementById("filterSelect").addEventListener("change", filterCards);
+});
+
+
 function displayPosts(posts) {
-  const postList = document.querySelector('.row');  
+  const postList = document.querySelector('.row');
   postList.innerHTML = "";
 
   posts.forEach((post) => {
     const postContainer = document.createElement('div');
     postContainer.className = 'column';
-    postContainer.setAttribute("data-category", post.tag); 
+    postContainer.setAttribute("data-category", post.tag);
 
-    // Create the card structure for the post
+    // Card structure for the post
     const imgElement = document.createElement('img');
-    imgElement.src = post.imageUrl; 
+    imgElement.src = post.imageUrl;
     imgElement.alt = `${post.title} - ${post.description}`;
-    imgElement.loading = "lazy";  
+    imgElement.loading = "lazy";
 
     // Overlay for additional content
     const overlay = document.createElement('div');
     overlay.className = 'overlay';
 
     const titleElement = document.createElement('h3');
-    titleElement.textContent = post.title;  
+    titleElement.textContent = post.title;
 
     const tagElement = document.createElement('span');
     tagElement.className = 'tag';
-    tagElement.textContent = post.tag;  
+    tagElement.textContent = post.tag;
 
     // Buttons inside the overlay
     const buttonsContainer = document.createElement('div');
@@ -46,34 +69,34 @@ function displayPosts(posts) {
     saveButton.addEventListener('click', () => { alert('Saved!'); });
 
     const shareButton = document.createElement('button');
-    shareButton.innerHTML = '<i class="fa-regular fa-share-from-square"></i>';
+    shareButton.innerHTML = '<i class="fa-solid fa-share-nodes"></i>';
     shareButton.addEventListener('click', () => { alert('Shared!'); });
 
-    
+
     buttonsContainer.appendChild(likeButton);
     buttonsContainer.appendChild(saveButton);
     buttonsContainer.appendChild(shareButton);
 
-    
+
     // Create the delete and update buttons
     const deleteButton = document.createElement('button');
     deleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
-    deleteButton.classList.add('delete-btn');  
+    deleteButton.classList.add('delete-btn');
     deleteButton.addEventListener('click', async () => {
       const isConfirmed = confirm("Are you sure you want to delete this post?");
       if (isConfirmed) {
-        await deletePost(post.id);  
-        const updatedPosts = await getPosts();  
-        displayPosts(updatedPosts);  
+        await deletePost(post.id);
+        const updatedPosts = await getPosts();
+        displayPosts(updatedPosts);
       }
     });
 
     const updateButton = document.createElement('button');
     updateButton.innerHTML = '<i class="fa-solid fa-pen"></i>';
-    updateButton.classList.add('update-btn');  
+    updateButton.classList.add('update-btn');
     updateButton.addEventListener('click', () => {
-      
-      const updatedPost = {  
+
+      const updatedPost = {
         title: prompt("Enter new title:", post.title),
         description: prompt("Enter new description:", post.description),
         imageUrl: prompt("Enter new image URL:", post.imageUrl),
@@ -81,7 +104,7 @@ function displayPosts(posts) {
         user: post.user
       };
       if (updatedPost.title && updatedPost.description && updatedPost.imageUrl) {
-        updatePost(post.id, updatedPost);  
+        updatePost(post.id, updatedPost);
       }
     });
 
@@ -97,7 +120,7 @@ function displayPosts(posts) {
     avatar.className = 'user-avatar';
 
     // Get initials from the user name
-    const initials = post.user.split(" ").map(name => name[0]).join(""); 
+    const initials = post.user.split(" ").map(name => name[0]).join("");
     avatar.textContent = initials;
 
     // User name
@@ -122,53 +145,3 @@ function displayPosts(posts) {
   });
 }
 
-// Modal setup function (for adding posts)
-function setupModal() {
-  const modal = document.getElementById("add-post-modal");
-  const openModalBtn = document.getElementById("open-modal-btn");
-  const closeModal = document.querySelector(".close-modal");
-  const addPostForm = document.getElementById("add-post-form");
-
-  // Open the modal to add a new post
-  openModalBtn.addEventListener("click", () => {
-    modal.style.display = "flex";
-  });
-
-  // Close the modal
-  closeModal.addEventListener("click", () => {
-    modal.style.display = "none";
-    addPostForm.reset();
-  });
-
-  // Close the modal if clicking outside of it
-  window.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      modal.style.display = "none";
-      addPostForm.reset();
-    }
-  });
-
-  // Form submission to create a new post
-  addPostForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
-    const newPost = {
-      title: document.getElementById("post-title").value,
-      description: document.getElementById("post-description").value,
-      imageUrl: document.getElementById("post-image").value,
-      tag: document.getElementById("post-tag").value,
-      user: document.getElementById("post-user").value,
-    };
-
-    try {
-      const createdPost = await createPost(newPost);  
-      const updatedPosts = await getPosts();  
-      displayPosts(updatedPosts);  
-      modal.style.display = "none";  
-      addPostForm.reset();  
-    } catch (error) {
-      console.error("Error adding post:", error);
-      alert("Failed to add post. Please try again.");
-    }
-  });
-}

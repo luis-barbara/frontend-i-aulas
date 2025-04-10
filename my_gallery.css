@@ -1,43 +1,299 @@
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
+* {
+    box-sizing: border-box;
+}
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.delete-btn,
+.update-btn {
+    position: absolute;
+    top: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    opacity: 0;
+    z-index: 10;
+}
+
+.delete-btn {
+    right: 45px; 
+}
+
+.update-btn {
+    right: 10px; 
+}
+
+.delete-btn:hover,
+.update-btn:hover {
+    background-color: rgba(255, 0, 0, 0.8);
+}
+
+
+.column:hover .delete-btn,
+.column:hover .update-btn {
+    opacity: 1;
+}
+
+.column {
+    flex: 1 1 calc(25% - 16px);
+    max-width: calc(25% - 16px);
+    padding: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-    background-color: #333;
-    margin: 15% auto;
-    padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 500px;
-    text-align: center;
-}
-
-.modal-content input,
-.modal-content textarea,
-.modal-content select {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    background-color: #444;
+    background: rgba(0, 0, 0, 0.7);
     color: white;
-    border: 1px solid #666;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.column:hover .overlay {
+    opacity: 1;
+}
+
+.overlay h3 {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.overlay .buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.overlay button {
+    background: none;
+    border: 1px solid white;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
     border-radius: 5px;
 }
 
-.close-btn {
+.overlay button:hover {
+    background: white;
+    color: black;
+}
+
+
+.column img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#searchInput,
+#filterSelect {
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #212121;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+#searchInput {
+    width: 60%;
+}
+
+#filterSelect {
+    width: 35%;
+}
+
+
+
+/* container edit Form */
+#editFormContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none; 
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+#editPostForm textarea {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    margin-bottom: 18px;
+    border: 1px solid #444; 
+    border-radius: 5px;
+    background-color: #333; 
+    color: white; 
+    resize: vertical; 
+    min-height: 120px; 
+}
+
+#editPostForm textarea:focus {
+    border-color: #555; 
+    outline: none;
+}
+
+/* Edit Form Style */
+#editPostForm {
+    background-color: #212121; 
+    color: white; 
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); 
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+}
+
+
+#editPostForm label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #bbb; 
+}
+
+/* Input and select style */
+#editPostForm input,
+#editPostForm select {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    margin-bottom: 18px;
+    border: 1px solid #444; 
+    border-radius: 5px;
+    background-color: #333; 
+    color: white; 
+}
+
+
+#editPostForm input:focus,
+#editPostForm select:focus {
+    border-color: #555; 
+    outline: none;
+}
+
+/* Send button style */
+#editPostForm button {
+    background-color: #3c3d43; 
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 30px; 
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+
+#editPostForm button:hover {
+    background-color: #474a51; 
+}
+
+/* Cancel button */
+#cancelEdit {
+    background-color: #f44336; 
+    color: white;
+    padding: 14px 20px;
+    border-radius: 30px; 
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    width: 100%;
+    margin-top: 15px;
+}
+
+
+#cancelEdit:hover {
+    background-color: #e53935; 
+}
+
+
+#editFormContainer .close-btn {
     position: absolute;
     top: 10px;
-    right: 20px;
-    color: white;
+    right: 10px;
     font-size: 30px;
+    color: white;
     cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1024px) {
+    .column {
+        flex: 1 1 calc(50% - 16px);
+        max-width: calc(50% - 16px);
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .column {
+        flex: 1 1 calc(50% - 16px);
+        max-width: calc(50% - 16px);
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .column {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    #editPostForm {
+        width: 90%;
+        padding: 20px;
+    }
 }
