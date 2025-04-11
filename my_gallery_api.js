@@ -60,20 +60,27 @@ function displayPosts(posts) {
         tagElement.className = 'tag';
         tagElement.textContent = post.tag;
 
-        // Share button
-        const shareButton = document.createElement('button');
-        shareButton.innerHTML = '<i class="fa-solid fa-share-nodes"></i>';
-        shareButton.classList.add('share-btn');
-        shareButton.addEventListener('click', () => { alert('Shared!'); });
+        // Options Menu
+        const optionsMenu = document.createElement('div');
+        optionsMenu.className = 'options-menu';
+        
+        const optionsButton = document.createElement('button');
+        optionsButton.className = 'options-btn';
+        optionsButton.innerHTML = '<i class="fa-solid fa-ellipsis-v"></i>';
 
-        // Container for delete and update buttons
-        const btnContainer = document.createElement('div');
-        btnContainer.classList.add('btn-container');
+        const menuDropdown = document.createElement('div');
+        menuDropdown.className = 'menu-dropdown';
 
-        // Create the delete and update buttons
+        const editButton = document.createElement('button');
+        editButton.className = 'edit-btn';
+        editButton.textContent = 'Edit';
+        editButton.addEventListener('click', (event) => {
+            openEditForm(post);
+        });
+
         const deleteButton = document.createElement('button');
-        deleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
-        deleteButton.classList.add('delete-btn');
+        deleteButton.className = 'delete-btn';
+        deleteButton.textContent = 'Delete';
         deleteButton.addEventListener('click', async () => {
             const isConfirmed = confirm("Are you sure you want to delete this post?");
             if (isConfirmed) {
@@ -83,28 +90,35 @@ function displayPosts(posts) {
             }
         });
 
-        const updateButton = document.createElement('button');
-        updateButton.innerHTML = '<i class="fa-solid fa-pen"></i>';
-        updateButton.classList.add('update-btn');
-        updateButton.addEventListener('click', () => {
-            openEditForm(post); 
+        const shareButton = document.createElement('button');
+        shareButton.className = 'share-btn';
+        shareButton.textContent = 'Share';
+        shareButton.addEventListener('click', () => { alert('Shared!'); });
+
+        const publishButton = document.createElement('button');
+        publishButton.className = 'publish-btn';
+        publishButton.textContent = 'Publish';
+        publishButton.addEventListener('click', async () => {
+            const isConfirmed = confirm("Do you want to publish this post?");
+            if (isConfirmed) {
+                await updatePost(post.id, { ...post, status: 'published' }); 
+                const updatedPosts = await getPosts();
+                displayPosts(updatedPosts);
+            }
         });
 
-        postContainer.appendChild(deleteButton);
-        postContainer.appendChild(updateButton);
-
-        // Overlay Elements
+        menuDropdown.append(editButton, deleteButton, shareButton, publishButton);
+        optionsMenu.append(optionsButton, menuDropdown);
+        
         overlay.appendChild(titleElement);
-        overlay.appendChild(shareButton);
-        overlay.appendChild(btnContainer);
-
-        // Image and overlay to post container
+        overlay.appendChild(optionsMenu);
+        
         postContainer.appendChild(imgElement);
         postContainer.appendChild(overlay);
         postList.appendChild(postContainer);
     });
-
 }
+
 
 function openEditForm(post) {
     const editFormContainer = document.getElementById("editFormContainer");
@@ -114,10 +128,11 @@ function openEditForm(post) {
     document.getElementById("editDescription").value = post.description;
     document.getElementById("editImageUrl").value = post.imageUrl;
     document.getElementById("editTag").value = post.tag;
-    
+    document.getElementById("editUser").value = post.user; // ✅ Include the user field
+
     editFormContainer.style.display = "flex";
-    
-    editForm.onsubmit = async function(e) {
+
+    editForm.onsubmit = async function (e) {
         e.preventDefault();
         
         const updatedPost = {
@@ -125,16 +140,55 @@ function openEditForm(post) {
             description: document.getElementById("editDescription").value,
             imageUrl: document.getElementById("editImageUrl").value,
             tag: document.getElementById("editTag").value,
-            user: post.user
+            user: document.getElementById("editUser").value 
         };
-        
-        await updatePost(post.id, updatedPost);
-        const updatedPosts = await getPosts();
-        displayPosts(updatedPosts);
-        editFormContainer.style.display = "none";
+
+        try {
+            await updatePost(post.id, updatedPost);
+            const updatedPosts = await getPosts();
+            displayPosts(updatedPosts);
+            editFormContainer.style.display = "none";
+        } catch (error) {
+            console.error("Update failed:", error);
+        }
     };
-    
-    document.getElementById("cancelEdit").onclick = function() {
+
+    document.getElementById("cancelEdit").onclick = function () {
         editFormContainer.style.display = "none";
     };
 }
+
+
+
+
+
+// Toggle options menu
+document.addEventListener("click", (event) => {
+    const isOptionsButton = event.target.closest(".options-btn");
+    const isMenu = event.target.closest(".menu-dropdown");
+    const isColumn = event.target.closest(".column");
+
+    // Toggle menu visibility when clicking the options button
+    if (isOptionsButton) {
+        event.stopPropagation(); 
+        const menu = isOptionsButton.nextElementSibling;
+        const isVisible = menu.classList.contains("show-menu");
+
+        // Close all other menus
+        document.querySelectorAll(".menu-dropdown").forEach(m => {
+            m.classList.remove("show-menu");
+        });
+
+        // Toggle visibility of the clicked menu
+        menu.classList.toggle("show-menu", !isVisible);
+    } else if (!isMenu && !isColumn) {
+        // Close the menu if clicked outside the column or menu
+        document.querySelectorAll(".menu-dropdown").forEach(menu => {
+            menu.classList.remove("show-menu");
+        });
+    }
+});
+
+
+
+

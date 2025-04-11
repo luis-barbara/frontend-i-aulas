@@ -78,38 +78,6 @@ function displayPosts(posts) {
     buttonsContainer.appendChild(shareButton);
 
 
-    // Create the delete and update buttons
-    const deleteButton = document.createElement('button');
-    deleteButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
-    deleteButton.classList.add('delete-btn');
-    deleteButton.addEventListener('click', async () => {
-      const isConfirmed = confirm("Are you sure you want to delete this post?");
-      if (isConfirmed) {
-        await deletePost(post.id);
-        const updatedPosts = await getPosts();
-        displayPosts(updatedPosts);
-      }
-    });
-
-    const updateButton = document.createElement('button');
-    updateButton.innerHTML = '<i class="fa-solid fa-pen"></i>';
-    updateButton.classList.add('update-btn');
-    updateButton.addEventListener('click', () => {
-
-      const updatedPost = {
-        title: prompt("Enter new title:", post.title),
-        description: prompt("Enter new description:", post.description),
-        imageUrl: prompt("Enter new image URL:", post.imageUrl),
-        tag: post.tag,
-        user: post.user
-      };
-      if (updatedPost.title && updatedPost.description && updatedPost.imageUrl) {
-        updatePost(post.id, updatedPost);
-      }
-    });
-
-    postContainer.appendChild(deleteButton);
-    postContainer.appendChild(updateButton);
 
     // Create the user info container
     const userContainer = document.createElement('div');
@@ -134,7 +102,6 @@ function displayPosts(posts) {
 
     // Append overlay elements to the post container
     overlay.appendChild(titleElement);
-    overlay.appendChild(tagElement);
     overlay.appendChild(buttonsContainer);
     overlay.appendChild(userContainer);
 

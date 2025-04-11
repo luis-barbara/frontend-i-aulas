@@ -49,20 +49,23 @@
                 <h1>My Gallery<span></span></h1>
             </div>
             <div id="editFormContainer" style="display: none;">
-                <h2>Edit Post</h2>
                 <form id="editPostForm">
+                    <h2>Edit Post</h2>
                     <label for="editTitle">Title:</label>
                     <input type="text" id="editTitle" name="title" required>
-    
+            
                     <label for="editDescription">Description:</label>
                     <textarea id="editDescription" name="description" required></textarea>
-    
-                    <label for="editImageUrl">Image URL:</label>
-                    <input type="url" id="editImageUrl" name="imageUrl" required>
-    
+            
+                    <label for="editImageUrl">Image Path:</label>
+                    <input type="text" id="editImageUrl" name="imageUrl" required> 
+            
                     <label for="editTag">Tag:</label>
                     <input type="text" id="editTag" name="tag" required>
-    
+
+                    <label for="editUser">User:</label>
+                    <input type="text" id="editUser" name="user" required>
+            
                     <button type="submit">Save Changes</button>
                     <button type="button" id="cancelEdit">Cancel</button>
                 </form>
@@ -77,10 +80,28 @@
                 </select>
             </div>
             
-            <div class="row"> 
-                
+            <div class="row">
+                <!-- 3 points menu -->
+                <div class="column" data-category="character">
+                    <img src="image-url.jpg" alt="Image Description" class="image" />
+                    <div class="overlay">
+                        <h3>Title</h3>
+                        <div class="options-menu">
+                            <!-- Botão dos três pontos -->
+                            <div class="options-btn">
+                                <i class="fa-solid fa-ellipsis-vertical"></i> <!-- Apenas o ícone -->
+                            </div>
+                            <!-- Menu dropdown -->
+                            <div class="menu-dropdown">
+                                <button class="edit-btn">Edit</button>
+                                <button class="delete-btn">Delete</button>
+                                <button class="share-btn">Share</button>
+                                <button class="publish-btn">Publish</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
     </main>
     <footer>
