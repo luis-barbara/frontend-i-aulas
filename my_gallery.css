@@ -106,8 +106,32 @@
     box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
 }
 
+#searchInput:hover{
+    border-color: white;
+    outline: none;
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+}
+
+#filterSelect:hover{
+    border-color: white;
+    outline: none;
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+}
+
+
+#filterSelect option {
+    background-color: #212121;
+    color: white;
+}
+
 #filterSelect {
     width: 35%;
+}
+
+#filterSelect:focus {
+    border-color: white;
+    outline: none;
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
 }
 
 
@@ -126,6 +150,7 @@
     z-index: 1000;
 }
 
+
 #editPostForm textarea {
     width: 100%;
     padding: 14px;
@@ -139,10 +164,6 @@
     min-height: 120px; 
 }
 
-#editPostForm textarea:focus {
-    border-color: #555; 
-    outline: none;
-}
 
 /* Edit Form Style */
 #editPostForm {
@@ -179,9 +200,11 @@
 
 
 #editPostForm input:focus,
-#editPostForm select:focus {
-    border-color: #555; 
+#editPostForm select:focus,
+#editPostForm textarea:focus {
+    border-color: white;
     outline: none;
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
 }
 
 /* Send button style */
@@ -199,13 +222,12 @@
 
 
 #editPostForm button:hover {
-    background-color: #474a51; 
+    background-color: white;
+    color: #212121; 
 }
 
 /* Cancel button */
 #cancelEdit {
-    background-color: #f44336; 
-    color: white;
     padding: 14px 20px;
     border-radius: 30px; 
     cursor: pointer;
@@ -213,11 +235,6 @@
     border: none;
     width: 100%;
     margin-top: 15px;
-}
-
-
-#cancelEdit:hover {
-    background-color: #e53935; 
 }
 
 
@@ -232,54 +249,75 @@
 
 
 /* Options menu button */
-.options-btn {
+.options-menu .options-btn {
     position: absolute;
     top: 10px;
     right: 10px;
     background: none;
     border: none;
-    padding: 0px;
+    padding: 6px;
     font-size: 18px;
     color: white;
     cursor: pointer;
-    transition: none;
     z-index: 10;
+    transition: color 0.3s ease;
+}
+
+.options-menu .options-btn:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px; 
 }
 
 
 /* Dropdown menu */
-.menu-dropdown {
+.options-menu .menu-dropdown {
     display: none;
     position: absolute;
     top: 40px;
     right: 10px;
     background: #333;
-    border-radius: 5px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 8px; 
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); 
     z-index: 20;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transform: translateY(-10px); 
 }
 
-.menu-dropdown button {
+.options-menu .menu-dropdown.show-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0); 
+}
+
+
+.options-menu .menu-dropdown button {
     display: block;
     width: 100%;
     background: none;
     border: none;
     color: white;
-    padding: 10px;
+    padding: 12px 20px;
     text-align: left;
     cursor: pointer;
     font-size: 14px;
-    transition: background 0.3s ease;
-    width: 150px;
+    transition: background 0.3s ease, color 0.3s ease; 
+    border-bottom: 1px solid #444;
 }
 
-.menu-dropdown button:hover {
-    background: rgba(255, 255, 255, 0.2);
+
+.options-menu .menu-dropdown button:hover {
+    background: #555; 
+    color: #fff; 
 }
 
-.menu-dropdown.show-menu {
-    display: block; 
+
+.options-menu .menu-dropdown button:last-child {
+    border-bottom: none;
 }
+
+
 
 
 

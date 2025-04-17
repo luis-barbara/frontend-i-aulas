@@ -142,11 +142,33 @@
     box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
 }
 
+#searchInput:hover{
+    border-color: white;
+    outline: none;
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+}
+
+#filterSelect:hover{
+    border-color: white;
+    outline: none;
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+}
+
+
+#filterSelect option {
+    background-color: #212121;
+    color: white;
+}
+
 #filterSelect {
     width: 35%;
 }
 
-
+#filterSelect:focus {
+    border-color: white;
+    outline: none;
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+}
 
 
 

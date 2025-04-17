@@ -62,9 +62,6 @@
             
                     <label for="editTag">Tag:</label>
                     <input type="text" id="editTag" name="tag" required>
-
-                    <label for="editUser">User:</label>
-                    <input type="text" id="editUser" name="user" required>
             
                     <button type="submit">Save Changes</button>
                     <button type="button" id="cancelEdit">Cancel</button>
@@ -87,10 +84,11 @@
                     <div class="overlay">
                         <h3>Title</h3>
                         <div class="options-menu">
-                            <!-- Botão dos três pontos -->
-                            <div class="options-btn">
-                                <i class="fa-solid fa-ellipsis-vertical"></i> <!-- Apenas o ícone -->
-                            </div>
+                            <!-- 3 points menu -->
+                            <button class="options-btn" aria-label="Post options">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </button> 
+                        
                             <!-- Menu dropdown -->
                             <div class="menu-dropdown">
                                 <button class="edit-btn">Edit</button>

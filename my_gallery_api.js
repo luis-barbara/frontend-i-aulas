@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     const posts = await getPosts();
     displayPosts(posts);
     setupModal();
+
+    document.getElementById("searchInput").addEventListener("keyup", filterCards);
+    document.getElementById("filterSelect").addEventListener("change", filterCards);
 });
 
 
@@ -29,7 +32,7 @@ function filterCards() {
     document.getElementById("filterSelect").addEventListener("change", filterCards);
   });
   
-
+  
 
 // Function to display posts
 function displayPosts(posts) {
@@ -66,7 +69,8 @@ function displayPosts(posts) {
         
         const optionsButton = document.createElement('button');
         optionsButton.className = 'options-btn';
-        optionsButton.innerHTML = '<i class="fa-solid fa-ellipsis-v"></i>';
+        optionsButton.innerHTML = '<i class="fa-solid fa-ellipsis-vertical"></i>';
+        optionsButton.setAttribute('aria-label', 'Post options');
 
         const menuDropdown = document.createElement('div');
         menuDropdown.className = 'menu-dropdown';
@@ -121,74 +125,123 @@ function displayPosts(posts) {
 
 
 function openEditForm(post) {
+    // Get form elements
     const editFormContainer = document.getElementById("editFormContainer");
     const editForm = document.getElementById("editPostForm");
-    
-    document.getElementById("editTitle").value = post.title;
-    document.getElementById("editDescription").value = post.description;
-    document.getElementById("editImageUrl").value = post.imageUrl;
-    document.getElementById("editTag").value = post.tag;
-    document.getElementById("editUser").value = post.user; // ✅ Include the user field
 
+    // Validate form elements exist
+    if (!editFormContainer || !editForm) {
+        console.error("Form elements not found in DOM");
+        return;
+    }
+
+    // Display the edit form with smooth scroll
     editFormContainer.style.display = "flex";
+    editFormContainer.scrollIntoView({ behavior: 'smooth' });
 
-    editForm.onsubmit = async function (e) {
+    // Populate form fields with existing post data (with empty fallbacks)
+    document.getElementById("editTitle").value = post.title || '';
+    document.getElementById("editDescription").value = post.description || '';
+    document.getElementById("editImageUrl").value = post.imageUrl || '';
+    document.getElementById("editTag").value = post.tag || '';
+
+    // Clear any existing event listeners to prevent duplicates
+    editForm.onsubmit = null;
+    document.getElementById("cancelEdit").onclick = null;
+
+    // Handle form submission
+    editForm.onsubmit = async (e) => {
         e.preventDefault();
         
-        const updatedPost = {
-            title: document.getElementById("editTitle").value,
-            description: document.getElementById("editDescription").value,
-            imageUrl: document.getElementById("editImageUrl").value,
-            tag: document.getElementById("editTag").value,
-            user: document.getElementById("editUser").value 
-        };
+        // Get submit button and set loading state
+        const submitBtn = e.target.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
 
         try {
-            await updatePost(post.id, updatedPost);
+            // Prepare updated post data (ONLY fields that exist in MockAPI schema)
+            const updatedPost = {
+                title: document.getElementById("editTitle").value.trim(),
+                description: document.getElementById("editDescription").value.trim(),
+                imageUrl: document.getElementById("editImageUrl").value.trim(),
+                tag: document.getElementById("editTag").value.trim(),
+                user: post.user
+            };
+
+            console.log("Prepared update data:", updatedPost); 
+
+            // Validate required fields
+            if (!updatedPost.title) throw new Error("Title is required");
+            if (!updatedPost.tag) throw new Error("Tag is required");
+            if (!updatedPost.user) throw new Error("User is required");
+
+            // Send update request
+            const response = await updatePost(post.id, updatedPost);
+            
+            // Verify response contains expected data
+            if (!response || !response.id) {
+                throw new Error("Server returned invalid response format");
+            }
+
+            // Update UI with fresh data
             const updatedPosts = await getPosts();
             displayPosts(updatedPosts);
+            
+            // Hide form and show success
             editFormContainer.style.display = "none";
+            alert("Post updated successfully!");
+            
         } catch (error) {
-            console.error("Update failed:", error);
+            console.error("Post update failed:", error);
+            
+            // Show user-friendly error message
+            let errorMessage = error.message;
+            if (errorMessage.includes("Invalid request")) {
+                errorMessage = "Server rejected the update data. Please check your inputs.";
+            }
+            alert(`Update failed: ${errorMessage}`);
+        } finally {
+            // Reset button state
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
         }
     };
 
-    document.getElementById("cancelEdit").onclick = function () {
+    // Handle cancel button click
+    document.getElementById("cancelEdit").onclick = () => {
         editFormContainer.style.display = "none";
     };
 }
 
 
-
-
-
 // Toggle options menu
 document.addEventListener("click", (event) => {
-    const isOptionsButton = event.target.closest(".options-btn");
-    const isMenu = event.target.closest(".menu-dropdown");
-    const isColumn = event.target.closest(".column");
+    const optionsBtn = event.target.closest(".options-btn");
+    const menuDropdown = event.target.closest(".menu-dropdown");
+    const optionsMenu = event.target.closest(".options-menu");
 
-    // Toggle menu visibility when clicking the options button
-    if (isOptionsButton) {
-        event.stopPropagation(); 
-        const menu = isOptionsButton.nextElementSibling;
-        const isVisible = menu.classList.contains("show-menu");
+    if (optionsBtn) {
+        event.preventDefault();
+        event.stopPropagation();
 
-        // Close all other menus
-        document.querySelectorAll(".menu-dropdown").forEach(m => {
-            m.classList.remove("show-menu");
+        // Close all other menus first
+        document.querySelectorAll(".menu-dropdown.show-menu").forEach(menu => {
+            if (menu !== optionsBtn.nextElementSibling) {
+                menu.classList.remove("show-menu");
+            }
         });
 
-        // Toggle visibility of the clicked menu
-        menu.classList.toggle("show-menu", !isVisible);
-    } else if (!isMenu && !isColumn) {
-        // Close the menu if clicked outside the column or menu
-        document.querySelectorAll(".menu-dropdown").forEach(menu => {
+        // Toggle the visibility of the current menu (show or hide)
+        const currentMenu = optionsBtn.nextElementSibling;
+        currentMenu.classList.toggle("show-menu");
+    } 
+    else if (!menuDropdown) {
+        document.querySelectorAll(".menu-dropdown.show-menu").forEach(menu => {
             menu.classList.remove("show-menu");
         });
     }
 });
-
 
 
 
