@@ -1,4 +1,4 @@
-import { getPosts, createPost, updatePost, deletePost } from "/user_api.js";
+import { getPosts, createPost, updatePost, deletePost } from "./user_api.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
     const posts = await getPosts();
