@@ -1,8 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+
 body {
     margin: 0;
     font-family: ui-sans-serif,-apple-system,system-ui,Segoe UI,Helvetica,Apple Color Emoji,Arial,sans-serif,Segoe UI Emoji,Segoe UI Symbol;
     background-color:#212121;
     color: white;
+    padding-top: 99px;
+    box-sizing: border-box;
 }
 
 
@@ -14,10 +21,13 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 0;
+    padding: 30px 50px;
     width: 100%;
-    position: relative;
-    z-index: 10; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: #212121; 
 }
 
 .navbar nav {
@@ -75,6 +85,7 @@ main {
     color: #c9d1d9;
     border: 1px solid #c9d1d9; 
 }
+
 
 .sidebar {
     position: fixed;
@@ -135,8 +146,6 @@ main {
     cursor: pointer;
     gap: 6px;
     order: 1; 
-    margin-right: auto;
-
 }
 
 .bar1, .bar2, .bar3 {
@@ -159,7 +168,6 @@ main {
 }
 
 
-
 .container {
     max-width: 1280px;
     margin: 0 auto;
@@ -171,7 +179,7 @@ main {
 .upper-text {
     flex: 1;
     text-align: center;
-    padding-top: 50px;
+    margin-top: 20px;
 }
 
 .upper-text h1 {
@@ -180,6 +188,7 @@ main {
     color: white;
     padding: 0;
     line-height: 1;
+    margin-bottom: 40px;
 }
 
 .upper-text h1 .secondary {
@@ -218,6 +227,14 @@ main {
     max-height: 150px; 
     overflow: hidden;
 }
+
+.chat-container:hover,
+.chat-container:focus-within {
+    border-color: white;
+    outline: none;
+    box-shadow: 0 0 6px white;
+}
+
 
 .chat-info {
     font-size: 14px;

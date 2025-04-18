@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
@@ -17,15 +17,15 @@
     <header>
         <div class="container">
             <div class="navbar">
-                <a class="dali-button" href="index.html">DALI.ai</a>
+                <a class=dali-button href="./index.html">DALI.ai</a>
                 <div class="hamburger-menu">
                     <div class="bar1"></div>
                     <div class="bar2"></div>
                     <div class="bar3"></div>
                 </div>
                 <nav>
-                    <a class=signin-button href="signin.html">Signin</a>
-                    <a class=signup-button href="signup.html">Signup</a>
+                    <a class="signin-button" href="./signin.html">Signin</a>
+                    <a class="signup-button" href="./signup.html">Signup</a>
                 </nav>
             </div>
         </div>
@@ -49,13 +49,13 @@
                 <h1>Bring your ideas to life<span class="secondary">with AI image generator</span></h1>
             </div>
         <div class="lower-text">
-            <h2>How can I help you today?</h2>
+            <h2 id="dynamic-text"></h2>
         </div>
        <!-- Chatbox Section -->
 <div class="chat-container">
     <div class="chat-box">
         <!-- Caixa de Entrada de Texto -->
-        <textarea class="chat-input" placeholder="Type your message here..." rows="2"></textarea>
+        <textarea class="chat-input" placeholder="Describe your image here..." rows="2"></textarea>
 
         <!-- Container for Record and Atach buttons -->
         <div class="chat-input-container">
@@ -85,8 +85,8 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="types.js"></script>
+    <script src="./script.js"></script>
+    <script src="./types.js"></script>
 </body>
 
 </html>

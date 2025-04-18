@@ -83,6 +83,7 @@
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
+    margin-bottom: 40px;
 }
 
 #searchInput,
@@ -100,22 +101,13 @@
     width: 60%;
 }
 
-#searchInput:focus {
+#searchInput:hover,
+#searchInput:focus,
+#filterSelect:hover,
+#filterSelect:focus {
     border-color: white;
     outline: none;
-    box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
-}
-
-#searchInput:hover{
-    border-color: white;
-    outline: none;
-    box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
-}
-
-#filterSelect:hover{
-    border-color: white;
-    outline: none;
-    box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
 }
 
 
@@ -128,11 +120,6 @@
     width: 35%;
 }
 
-#filterSelect:focus {
-    border-color: white;
-    outline: none;
-    box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
-}
 
 
 
