@@ -10,13 +10,13 @@ export const getPosts = async () => {
 };
 
 export const getPost = async (id) => {
-  const response = await fetch(apiURL + "posts/" + id);
+  const response = await fetch(apiURL + "community_posts/" + id);
   const data = await response.json();
   return data;
 };
 
 export const createPost = async (post) => {
-  const response = await fetch(apiURL + "posts", {
+  const response = await fetch(apiURL + "community_posts", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -28,7 +28,7 @@ export const createPost = async (post) => {
 };
 
 export const updatePost = async (id, post) => {
-  const response = await fetch(apiURL + "posts/" + id, {
+  const response = await fetch(apiURL + "community_posts/" + id, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -40,7 +40,7 @@ export const updatePost = async (id, post) => {
 };
 
 export const deletePost = async (id) => {
-  const response = await fetch(apiURL + "posts/" + id, {
+  const response = await fetch(apiURL + "community_posts/" + id, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
