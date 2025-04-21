@@ -3,7 +3,7 @@
 
 <head>
     <title>Dali</title>
-    <link rel="icon" type="favicon/x-icon" href="/imagens/favicon2.png">
+    <link rel="icon" type="favicon/x-icon" href="/images/favicon.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -105,13 +105,16 @@
     <footer>
         <div class="container">
             
-                <p>&copy;2025 DALI.ai - all rights reserved</p>
+            <p>&copy;<span id="year"></span> DALI.ai - all rights reserved</p>
             
         </div>
     </footer>
 
     <script src="./my_gallery_api.js" type="module"></script>
     <script src="./script.js"></script>
+    <script>
+        document.getElementById("year").textContent=new Date().getFullYear();
+    </script>
 </body>
 
 </html>

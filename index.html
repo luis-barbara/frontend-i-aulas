@@ -3,7 +3,7 @@
 
 <head>
     <title>Dali</title>
-    <link rel="icon" type="favicon/x-icon" href="/imagens/favicon2.png">
+    <link rel="icon" type="favicon/x-icon" href="/images/favicon.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -46,7 +46,7 @@
     <main>
         <div class="container">
             <div class="upper-text">
-                <h1>Bring your ideas to life<span class="secondary">with AI image generator</span></h1>
+                <h1>Bring your ideas to life<span class="secondary">with AI✨ image generator</span></h1>
             </div>
         <div class="lower-text">
             <h2 id="dynamic-text"></h2>
@@ -60,9 +60,10 @@
         <!-- Container for Record and Atach buttons -->
         <div class="chat-input-container">
             <!-- Attach button -->
-            <button class="attach-button" aria-label="Anexar">
+            <button class="attach-button" id="attachBtn" aria-label="Anexar">
                 <i class="fa-solid fa-paperclip"></i> 
             </button>
+            <input type="file" id="fileInput" style="display: none;" multiple />
 
             <!-- Rcord button -->
             <button class="record-button" aria-label="Gravar">
@@ -80,13 +81,15 @@
     <footer>
         <div class="container">
 
-            <p>&copy;2025 DALI.ai - all rights reserved</p>
+            <p>&copy;<span id="year"></span> DALI.ai - all rights reserved</p>
 
         </div>
     </footer>
 
     <script src="./script.js"></script>
-    <script src="./types.js"></script>
+    <script>
+        document.getElementById("year").textContent=new Date().getFullYear();
+    </script>
 </body>
 
 </html>
