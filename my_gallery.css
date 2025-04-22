@@ -31,8 +31,9 @@
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding: 20px;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -303,9 +304,6 @@
 .options-menu .menu-dropdown button:last-child {
     border-bottom: none;
 }
-
-
-
 
 
 

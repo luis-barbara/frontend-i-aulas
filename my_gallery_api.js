@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("filterSelect").addEventListener("change", filterCards);
 });
 
-
 function filterCards() {
     const searchValue = document.getElementById("searchInput").value.toLowerCase();
     const filterValue = document.getElementById("filterSelect").value;
@@ -25,14 +24,7 @@ function filterCards() {
   
         post.style.display = matchesSearch && matchesFilter ? "block" : "none";
     });
-  }
-  
-  document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("searchInput").addEventListener("keyup", filterCards);
-    document.getElementById("filterSelect").addEventListener("change", filterCards);
-  });
-  
-  
+}
 
 // Function to display posts
 function displayPosts(posts) {
@@ -75,16 +67,24 @@ function displayPosts(posts) {
         const menuDropdown = document.createElement('div');
         menuDropdown.className = 'menu-dropdown';
 
+        //edit button
         const editButton = document.createElement('button');
         editButton.className = 'edit-btn';
-        editButton.textContent = 'Edit';
+        const editIcon = document.createElement('i');
+        editIcon.className = 'fa-solid fa-pen-to-square';
+        editIcon.style.marginRight = "6px"; 
+        editButton.append(editIcon, 'Edit');
         editButton.addEventListener('click', (event) => {
             openEditForm(post);
         });
 
+        //delete button
         const deleteButton = document.createElement('button');
         deleteButton.className = 'delete-btn';
-        deleteButton.textContent = 'Delete';
+        const deleteIcon = document.createElement('i');
+        deleteIcon.className = 'fa-solid fa-trash';
+        deleteIcon.style.marginRight = "6px";
+        deleteButton.append(deleteIcon, 'Delete');
         deleteButton.addEventListener('click', async () => {
             const isConfirmed = confirm("Are you sure you want to delete this post?");
             if (isConfirmed) {
@@ -94,14 +94,22 @@ function displayPosts(posts) {
             }
         });
 
+        //share button
         const shareButton = document.createElement('button');
         shareButton.className = 'share-btn';
-        shareButton.textContent = 'Share';
+        const shareIcon = document.createElement('i');
+        shareIcon.className = 'fa-solid fa-share';
+        shareIcon.style.marginRight = "6px";
+        shareButton.append(shareIcon, 'Share');
         shareButton.addEventListener('click', () => { alert('Shared!'); });
 
+        //publish button
         const publishButton = document.createElement('button');
         publishButton.className = 'publish-btn';
-        publishButton.textContent = 'Publish';
+        const publishIcon = document.createElement('i');
+        publishIcon.className = 'fa-solid fa-paper-plane';
+        publishIcon.style.marginRight = "6px";
+        publishButton.append(publishIcon, 'Publish');
         publishButton.addEventListener('click', async () => {
             const isConfirmed = confirm("Do you want to publish this post?");
             if (isConfirmed) {
@@ -122,7 +130,6 @@ function displayPosts(posts) {
         postList.appendChild(postContainer);
     });
 }
-
 
 function openEditForm(post) {
     // Get form elements
@@ -215,33 +222,29 @@ function openEditForm(post) {
 }
 
 
-// Toggle options menu
+// Toggle options menu visibility
 document.addEventListener("click", (event) => {
     const optionsBtn = event.target.closest(".options-btn");
     const menuDropdown = event.target.closest(".menu-dropdown");
-    const optionsMenu = event.target.closest(".options-menu");
 
     if (optionsBtn) {
         event.preventDefault();
         event.stopPropagation();
 
-        // Close all other menus first
+        // Close all other menus
         document.querySelectorAll(".menu-dropdown.show-menu").forEach(menu => {
             if (menu !== optionsBtn.nextElementSibling) {
                 menu.classList.remove("show-menu");
             }
         });
 
-        // Toggle the visibility of the current menu (show or hide)
+        // Toggle the current menu
         const currentMenu = optionsBtn.nextElementSibling;
         currentMenu.classList.toggle("show-menu");
-    } 
-    else if (!menuDropdown) {
+    } else {
+        // Close all menus when clicking outside
         document.querySelectorAll(".menu-dropdown.show-menu").forEach(menu => {
             menu.classList.remove("show-menu");
         });
     }
 });
-
-
-

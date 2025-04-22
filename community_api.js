@@ -61,15 +61,15 @@ function displayPosts(posts) {
     buttonsContainer.className = 'buttons';
 
     const likeButton = document.createElement('button');
-    likeButton.innerHTML = '<i class="fa-regular fa-heart"></i>';
+    likeButton.innerHTML = '<i class="fa-solid fa-heart"></i>';
     likeButton.addEventListener('click', () => { alert('Liked!'); });
 
     const saveButton = document.createElement('button');
-    saveButton.innerHTML = '<i class="fa-regular fa-bookmark"></i>';
+    saveButton.innerHTML = '<i class="fa-solid fa-bookmark"></i>';
     saveButton.addEventListener('click', () => { alert('Saved!'); });
 
     const shareButton = document.createElement('button');
-    shareButton.innerHTML = '<i class="fa-solid fa-share-nodes"></i>';
+    shareButton.innerHTML = '<i class="fa-solid fa-share"></i>';
     shareButton.addEventListener('click', () => { alert('Shared!'); });
 
 

@@ -81,10 +81,10 @@ main {
 }
 
 .signup-button:hover {
-    background-color: #3c3d43; 
-    color: #c9d1d9;
-    border: 1px solid #c9d1d9; 
+    background-color: #c9d1d9;
+    color: #212121;
 }
+
 
 
 .sidebar {
@@ -185,7 +185,7 @@ main {
 .upper-text h1 {
     font-size: 50px;
     margin: 0;
-    color: white;
+    color: #c9d1d9;
     padding: 0;
     line-height: 1;
     margin-bottom: 40px;
@@ -198,6 +198,13 @@ main {
     padding: 0;
     line-height: 1;
 }
+
+
+.upper-text i {
+    color: #c9d1d9;
+    margin-left: 10px; 
+}
+
 
 
 .lower-text{
