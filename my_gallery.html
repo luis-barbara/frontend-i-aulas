@@ -10,39 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./my_gallery.css">
     <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <div class="navbar">
-                <a class="dali-button" href="./index.html">DALI.ai</a>
-                <div class="hamburger-menu">
-                    <div class="bar1"></div>
-                    <div class="bar2"></div>
-                    <div class="bar3"></div>
-                </div>
-                <nav>
-                    <a class="signin-button" href="./signin.html">Signin</a>
-                    <a class="signup-button" href="./signup.html">Signup</a>
-                </nav>
-            </div>
-        </div>
-        <aside id="sidebar" class="sidebar">
-            <button class="close-btn">&times;</button> <!-- Close button inside the sidebar -->
-            <ul class="menu">
-                <li><a href="./index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="./my_gallery.html"><i class="fas fa-image"></i> My Gallery</a></li>
-                <li><a href="#"><i class="fas fa-user"></i> Character</a></li>
-                <li><a href="#"><i class="fa-solid fa-mountain-sun"></i> Scenario</a></li>
-                <li><a href="#"><i class="fas fa-video"></i> Video</a></li>
-                <li><a href="./community.html"><i class="fas fa-users"></i> Community</a></li>
-                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Sign Out</a></li>
-            </ul>
-        </aside>
-    </header>
+    <dali-header></dali-header>
+
     <main>
         <div class="container">
             <div class="upper-text">
@@ -53,16 +28,16 @@
                     <h2>Edit Post</h2>
                     <label for="editTitle">Title:</label>
                     <input type="text" id="editTitle" name="title" required>
-            
+
                     <label for="editDescription">Description:</label>
                     <textarea id="editDescription" name="description" required></textarea>
-            
+
                     <label for="editImageUrl">Image Path:</label>
-                    <input type="text" id="editImageUrl" name="imageUrl" required> 
-            
+                    <input type="text" id="editImageUrl" name="imageUrl" required>
+
                     <label for="editTag">Tag:</label>
                     <input type="text" id="editTag" name="tag" required>
-            
+
                     <button type="submit">Save Changes</button>
                     <button type="button" id="cancelEdit">Cancel</button>
                 </form>
@@ -76,7 +51,7 @@
                     <option value="video">Video</option>
                 </select>
             </div>
-            
+
             <div class="row">
                 <!-- 3 points menu -->
                 <div class="column" data-category="character">
@@ -87,8 +62,8 @@
                             <!-- 3 points menu -->
                             <button class="options-btn" aria-label="Post options">
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
-                            </button> 
-                        
+                            </button>
+
                             <!-- Menu dropdown -->
                             <div class="menu-dropdown">
                                 <button class="edit-btn">Edit</button>
@@ -102,19 +77,13 @@
             </div>
         </div>
     </main>
-    <footer>
-        <div class="container">
-            
-            <p>&copy;<span id="year"></span> DALI.ai - all rights reserved</p>
-            
-        </div>
-    </footer>
+    <dali-footer></dali-footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./my_gallery_api.js" type="module"></script>
     <script src="./script.js"></script>
-    <script>
-        document.getElementById("year").textContent=new Date().getFullYear();
-    </script>
+    <script src="./shared_components.js"></script>
+    
 </body>
 
 </html>

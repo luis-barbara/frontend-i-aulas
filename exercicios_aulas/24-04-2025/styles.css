@@ -1,0 +1,35 @@
+
+.splide__slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    background: #4a90e2;
+    color: white;
+    height: 150px;
+    transition: transform 0.3s, opacity 0.3s;
+    opacity: 0.5;
+  }
+  
+  .splide__slide.is-active {
+    opacity: 1;
+    z-index: 2;
+  } 
+
+  /* Barra de progresso */
+  .my-carousel-progress {
+    position: relative;
+    width: 100%;
+    height: 5px;
+    background-color: #e0e0e0;
+    margin-top: 10px;
+  }
+  
+  .my-carousel-progress-bar {
+    position: absolute;
+    height: 100%;
+    width: 0;
+    background-color: #ff5e5b;
+    transition: width 0.25s ease;
+  }
+  

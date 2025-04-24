@@ -85,13 +85,43 @@ function displayPosts(posts) {
         deleteIcon.className = 'fa-solid fa-trash';
         deleteIcon.style.marginRight = "6px";
         deleteButton.append(deleteIcon, 'Delete');
+
         deleteButton.addEventListener('click', async () => {
-            const isConfirmed = confirm("Are you sure you want to delete this post?");
-            if (isConfirmed) {
-                await deletePost(post.id);
-                const updatedPosts = await getPosts();
-                displayPosts(updatedPosts);
-            }
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+        });
+
+        const result = await swalWithBootstrapButtons.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true
+        });
+
+        if (result.isConfirmed) {
+            await deletePost(post.id);
+            const updatedPosts = await getPosts();
+            displayPosts(updatedPosts);
+
+            swalWithBootstrapButtons.fire({
+            title: 'Deleted!',
+            text: 'Your post has been deleted.',
+            icon: 'success'
+            });
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+            swalWithBootstrapButtons.fire({
+            title: 'Cancelled',
+            text: 'Your post is safe :)',
+            icon: 'error'
+            });
+        }
         });
 
         //share button

@@ -1,6 +1,9 @@
+// shared_components.js
 
-const template = document.createElement("template");
-template.innerHTML = `
+
+// dali-header
+const template_header = document.createElement("template");
+template_header.innerHTML = `
     <style>
     @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css");
 
@@ -192,9 +195,9 @@ template.innerHTML = `
 
 class DaliHeader extends HTMLElement {
     constructor() {
-      super();
-      this.attachShadow({ mode: 'open' });
-      this.shadowRoot.appendChild(template.content.cloneNode(true));
+        super();
+        this.attachShadow({ mode: 'open' });
+        this.shadowRoot.appendChild(template_header.content.cloneNode(true));
     }
 
     connectedCallback() {
@@ -230,3 +233,50 @@ class DaliHeader extends HTMLElement {
 }
 
 customElements.define('dali-header', DaliHeader);
+
+
+
+// dali-footer
+const template_footer = document.createElement("template");
+template_footer.innerHTML = `
+    <style>
+
+footer {
+    flex-shrink: 0;
+    color: #c9d1d9;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #c9d1d9;
+}
+ </style>
+
+<footer>
+    <div class="container">
+        <p>&copy;<span id="year"></span> DALI.ai - all rights reserved</p>
+    </div>
+</footer>
+`;
+
+
+class DaliFooter extends HTMLElement {
+    constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+        this.shadowRoot.appendChild(template_footer.content.cloneNode(true));
+    }
+
+    connectedCallback() {
+        const yearElement = this.shadowRoot.querySelector("#year");
+        yearElement.textContent = new Date().getFullYear();
+    }
+}
+
+customElements.define('dali-footer', DaliFooter);
+

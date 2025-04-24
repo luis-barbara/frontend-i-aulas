@@ -306,6 +306,52 @@
 }
 
 
+/* botoes de delete message */
+
+/* Botão base */
+.btn {
+    display: inline-block;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    font-size: 1rem;
+    line-height: 1.25;
+    white-space: nowrap;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    margin: 0 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.25rem;
+    transition: 0.15s ease-in-out;
+  }
+  
+  /* Botão verde (confirmar) */
+  .btn-success {
+    color: white;
+    background-color: rgb(40, 167, 69);
+    border-color: rgb(40, 167, 69);
+  }
+  
+  /* Botão vermelho (cancelar) */
+  .btn-danger {
+    color: white;
+    background-color: rgb(220, 53, 69);
+    border-color: rgb(220, 53, 69);
+  }
+  
+  /* Hover para todos os botões */
+  .btn:hover {
+    opacity: 0.85;
+    cursor: pointer;
+  }
+
+
+
+
+
+
 
 
 @media screen and (max-width: 1024px) {

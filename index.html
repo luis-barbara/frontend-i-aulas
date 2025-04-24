@@ -14,56 +14,48 @@
 </head>
 
 <body>
-    <dali-header></dali-header>   
+    <dali-header></dali-header>
 
     <main>
         <div class="container">
             <div class="upper-text">
                 <h1>Bring your ideas to life<span class="secondary">with AI✨ image generator</span></h1>
             </div>
-        <div class="lower-text">
-            <h2 id="dynamic-text"></h2>
-        </div>
-       <!-- Chatbox Section -->
-<div class="chat-container">
-    <div class="chat-box">
-        <!-- Caixa de Entrada de Texto -->
-        <textarea class="chat-input" placeholder="Describe your image here..." rows="2"></textarea>
+            <div class="lower-text">
+                <h2 id="dynamic-text"></h2>
+            </div>
+            <!-- Chatbox Section -->
+            <div class="chat-container">
+                <div class="chat-box">
+                    <!-- Caixa de Entrada de Texto -->
+                    <textarea class="chat-input" placeholder="Describe your image here..." rows="2"></textarea>
 
-        <!-- Container for Record and Atach buttons -->
-        <div class="chat-input-container">
-            <!-- Attach button -->
-            <button class="attach-button" id="attachBtn" aria-label="Anexar">
-                <i class="fa-solid fa-paperclip"></i> 
-            </button>
-            <input type="file" id="fileInput" style="display: none;" multiple />
+                    <!-- Container for Record and Atach buttons -->
+                    <div class="chat-input-container">
+                        <!-- Attach button -->
+                        <button class="attach-button" id="attachBtn" aria-label="Anexar">
+                            <i class="fa-solid fa-paperclip"></i>
+                        </button>
+                        <input type="file" id="fileInput" style="display: none;" multiple />
 
-            <!-- Rcord button -->
-            <button class="record-button" aria-label="Gravar">
-                <i class="fa-solid fa-microphone"></i> 
-            </button>
+                        <!-- Rcord button -->
+                        <button class="record-button" aria-label="Gravar">
+                            <i class="fa-solid fa-microphone"></i>
+                        </button>
 
-            <!-- Send button -->
-            <button class="send-button" aria-label="Enviar">
-                <i class="fa-solid fa-arrow-up"></i> 
-            </button>
-        </div>
-    </div>
-</div>
+                        <!-- Send button -->
+                        <button class="send-button" aria-label="Enviar">
+                            <i class="fa-solid fa-arrow-up"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
     </main>
-    <footer>
-        <div class="container">
+    <dali-footer></dali-footer>
 
-            <p>&copy;<span id="year"></span> DALI.ai - all rights reserved</p>
-
-        </div>
-    </footer>
-
-    <script src="./script.js"></script>
     <script src="./shared_components.js"></script>
-    <script>
-        document.getElementById("year").textContent=new Date().getFullYear();
-    </script>
+    <script src="./script.js"></script>
+    
 </body>
 
 </html>
