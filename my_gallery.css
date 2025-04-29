@@ -124,7 +124,7 @@
 
 
 
-/* container edit Form */
+/* === Container Edit Form === */
 #editFormContainer {
     position: fixed;
     top: 0;
@@ -138,22 +138,15 @@
     z-index: 1000;
 }
 
-
-#editPostForm textarea {
-    width: 100%;
-    padding: 14px;
-    font-size: 16px;
-    margin-bottom: 18px;
-    border: 1px solid #444; 
-    border-radius: 5px;
-    background-color: #333; 
-    color: white; 
-    resize: vertical; 
-    min-height: 120px; 
+#editPostForm h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 28px;
+    color: #c9d1d9;
 }
 
-
-/* Edit Form Style */
+/* === Edit Form === */
 #editPostForm {
     background-color: #212121; 
     color: white; 
@@ -165,7 +158,6 @@
     position: relative;
 }
 
-
 #editPostForm label {
     display: block;
     font-size: 16px;
@@ -173,67 +165,61 @@
     color: #bbb; 
 }
 
-/* Input and select style */
+/* === Inputs, Select, Textarea === */
 #editPostForm input,
-#editPostForm select {
+#editPostForm select,
+#editPostForm textarea {
     width: 100%;
     padding: 14px;
-    font-size: 16px;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
     margin-bottom: 18px;
     border: 1px solid #444; 
-    border-radius: 5px;
-    background-color: #333; 
-    color: white; 
+    border-radius: 6px;
+    background-color: #212121;
+    color: white;
+    outline: none;
 }
 
-
+#editPostForm input:hover,
 #editPostForm input:focus,
+#editPostForm select:hover,
 #editPostForm select:focus,
+#editPostForm textarea:hover,
 #editPostForm textarea:focus {
     border-color: white;
-    outline: none;
-    box-shadow: 0 0 3px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
 }
 
-/* Send button style */
-#editPostForm button {
+/* === Send & Cancel Buttons === */
+#editPostForm button,
+#cancelEdit {
     background-color: #3c3d43; 
     color: white;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
     border: none;
     padding: 14px 20px;
-    border-radius: 30px; 
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 16px;
     transition: background-color 0.3s ease;
     width: 100%;
 }
 
-
-#editPostForm button:hover {
+#editPostForm button:hover,
+#cancelEdit:hover {
     background-color: white;
-    color: #212121; 
+    color: #212121;
 }
 
-/* Cancel button */
 #cancelEdit {
-    padding: 14px 20px;
-    border-radius: 30px; 
-    cursor: pointer;
-    font-size: 16px;
-    border: none;
-    width: 100%;
     margin-top: 15px;
 }
 
 
-#editFormContainer .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-}
+
+
 
 
 /* Options menu button */

@@ -1,6 +1,6 @@
 // Dynamic text effect
 const dynamicText = document.getElementById("dynamic-text");
-const text = "What should we create today?";
+const text = "What should I create for you today?";
 let index = 0;
 
 function typeEffect() {
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
       if (files.length > 0) {
         const file = files[0];
-        alert(`Ficheiro "${file.name}" carregado com sucesso!`);
+        alert(`File "${file.name}" uploaded successfully!`);
       }
     });
 });
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (SpeechRecognition) {
         const recognition = new SpeechRecognition();
-        recognition.lang = 'en-US';  
+        recognition.lang = 'pt-PT';  
         recognition.continuous = false;  
         recognition.interimResults = false;  
 
