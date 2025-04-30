@@ -191,6 +191,26 @@ template_header.innerHTML = `
         </ul>
     </aside>
 </header>
+
+<style>
+@media (max-width: 550px) {
+  .dali-button {
+    display: none;
+  }
+
+  .signup-button {
+    display: none;
+  }
+
+  .signin-button {
+    display: inline-block;
+  }
+
+  .hamburger-menu {
+    display: flex;
+  }
+}
+</style>
 `;
 
 class DaliHeader extends HTMLElement {

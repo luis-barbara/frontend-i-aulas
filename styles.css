@@ -220,3 +220,19 @@ main {
         z-index: 100; 
     }
 }
+
+
+@media (max-width: 550px) {
+    .upper-text h1 {
+        font-size: 28px;
+    }
+
+    .upper-text h1 .secondary {
+        font-size: 28px;
+    }
+
+    .lower-text {
+        font-size: 12px;
+        margin-top: 120px; 
+    }
+}
